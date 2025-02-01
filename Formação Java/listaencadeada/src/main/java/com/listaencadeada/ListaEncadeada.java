@@ -59,16 +59,16 @@ public class ListaEncadeada<T> {
     }
 
     public T remove(int index){
-        No<T> NoPivot = this.getNo(index);
+        No<T> noPivo = this.getNo(index);
 
         if(index == 0){
-            cabeca = NoPivot.getProximoNo();
-            return NoPivot.getConteudo();
+            cabeca = noPivo.getProximoNo();
+            return noPivo.getConteudo();
         }
 
         No<T> noAnterior = this.getNo(index - 1);
-        noAnterior.setProximoNo(NoPivot.getProximoNo());
-        return NoPivot.getConteudo();        
+        noAnterior.setProximoNo(noPivo.getProximoNo());
+        return noPivo.getConteudo();        
     }
 
     @Override
