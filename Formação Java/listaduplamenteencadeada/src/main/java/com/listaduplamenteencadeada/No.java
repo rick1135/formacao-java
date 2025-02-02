@@ -2,8 +2,8 @@ package com.listaduplamenteencadeada;
 
 public class No<T> {
     private T conteudo;
-    private No noAnterior;
-    private No proximoNo;
+    private No<T> noAnterior;
+    private No<T> proximoNo;
 
     public No(T conteudo){
         this.conteudo = conteudo;
@@ -17,19 +17,19 @@ public class No<T> {
         this.conteudo = conteudo;
     }
 
-    public No getNoAnterior() {
+    public No<T> getNoAnterior() {
         return noAnterior;
     }
 
-    public void setNoAnterior(No noAnterior) {
+    public void setNoAnterior(No<T> noAnterior) {
         this.noAnterior = noAnterior;
     }
 
-    public No getProximoNo() {
+    public No<T> getProximoNo() {
         return proximoNo;
     }
 
-    public void setProximoNo(No proximoNo) {
+    public void setProximoNo(No<T> proximoNo) {
         this.proximoNo = proximoNo;
     }
 
