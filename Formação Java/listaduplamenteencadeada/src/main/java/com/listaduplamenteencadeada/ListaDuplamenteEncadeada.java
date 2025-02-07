@@ -19,7 +19,7 @@ public class ListaDuplamenteEncadeada<T> {
         No<T> aux = primeiroNo;
 
         for(int i=0; (i<index) && (aux!=null); i++){
-            aux = aux.getProximoNo();
+            aux=aux.getProximoNo();
         }
 
         return aux;
@@ -32,12 +32,17 @@ public class ListaDuplamenteEncadeada<T> {
     public void add(T counteudo){
         No<T> novoNo = new No<>(counteudo);
 
-        novoNo.setNoAnterior(ultimoNo);
         novoNo.setProximoNo(null);
-        if(primeiroNo==null) primeiroNo=novoNo;
-        if(ultimoNo!=null) ultimoNo.setProximoNo(novoNo);
+        novoNo.setNoAnterior(ultimoNo);
+        if (primeiroNo==null) {
+            primeiroNo=novoNo;
+        }
+        if (ultimoNo!=null) {
+            ultimoNo=novoNo;
+        }
         ultimoNo=novoNo;
         tamanhoLista++;
+        
     }
 
     public void add(int index, T conteudo){
@@ -45,20 +50,13 @@ public class ListaDuplamenteEncadeada<T> {
         No<T> novoNo = new No<>(conteudo);
         novoNo.setProximoNo(aux);
 
-        if(novoNo.getProximoNo() != null){
+        if(novoNo.getProximoNo()!=null){
             novoNo.setNoAnterior(aux.getNoAnterior());
             novoNo.getProximoNo().setNoAnterior(novoNo);
-        }else{
-            novoNo.setNoAnterior((ultimoNo));
-            ultimoNo = novoNo;
         }
 
-        if(index==0){
-            primeiroNo = novoNo;
-        }else{
-            novoNo.getNoAnterior().setProximoNo(novoNo);
-        }
-
+        if(index==0) primeiroNo=novoNo;
+        else novoNo.getNoAnterior().setProximoNo(novoNo);
         tamanhoLista++;
     }
 
