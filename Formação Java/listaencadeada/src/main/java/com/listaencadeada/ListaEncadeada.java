@@ -14,11 +14,18 @@ public class ListaEncadeada<T> {
     public int size(){
         int tamanho = 0;
         No<T> aux = cabeca;
+
         while(true){
-            if(aux == null) break;
-            tamanho++;
-            if(aux.getProximoNo() == null) break;
-            aux = aux.getProximoNo();
+            if(aux!=null){
+                tamanho++;
+                if(aux.getProximoNo()!=null){
+                    aux=aux.getProximoNo();
+                }else{
+                    break;
+                }
+            }else{
+                break;
+            }
         }
         return tamanho;
     }
@@ -27,15 +34,17 @@ public class ListaEncadeada<T> {
         No<T> novoNo = new No<>(counteudo);
 
         if(this.isEmpty()){
-            cabeca = novoNo;
+            cabeca=novoNo;
             return;
         }
 
         No<T> aux = cabeca;
-        for(int i = 0; i < this.size() - 1; i++){
-            aux = aux.getProximoNo();
+        for(int i=0; i<=this.size(); i++){
+            aux=aux.getProximoNo();
         }
+
         aux.setProximoNo(novoNo);
+
     }
 
     private No<T> getNo(int index){
@@ -60,15 +69,15 @@ public class ListaEncadeada<T> {
 
     public T remove(int index){
         No<T> noPivo = this.getNo(index);
-
-        if(index == 0){
+        
+        if(index==0){
             cabeca = noPivo.getProximoNo();
             return noPivo.getConteudo();
         }
-
-        No<T> noAnterior = this.getNo(index - 1);
-        noAnterior.setProximoNo(noPivo.getProximoNo());
-        return noPivo.getConteudo();        
+        
+        No<T> anterior = getNo(index-1);
+        anterior.setProximoNo(noPivo.getProximoNo());
+        return noPivo.getConteudo();
     }
 
     @Override
