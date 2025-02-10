@@ -1,0 +1,21 @@
+println "Helo build.gradle"
+def MyGroup = "My Group"
+task myFirstTask{
+    group MyGroup
+    description "this is only a test"
+    doLast{
+        println "doLast : hello myFirstTask"
+    }
+}
+
+task mySecondTask(group: MyGroup, description: "this is more than a test"){
+    doLast{
+        println "doLast : hello mySecondTask"
+    }
+}
+
+tasks.named('tasks'){
+    doLast{
+        println "modifying the end of tasks task"
+    }
+}
