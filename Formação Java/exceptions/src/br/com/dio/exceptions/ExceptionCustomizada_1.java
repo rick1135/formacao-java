@@ -47,25 +47,20 @@ public class ExceptionCustomizada_1 {
 }
 
 class ImpossivelAberturaDeArquivoException extends Exception {
-
     private String nomeDoArquivo;
-    private String diretorio;
+    private String caminhoDoArquivo;
 
-    public ImpossivelAberturaDeArquivoException(String nomeDoArquivo, String diretorio) {
-        super("O arquivo " + nomeDoArquivo + " não foi encontrado no diretório " + diretorio);
+    public ImpossivelAberturaDeArquivoException(String nomeDoArquivo, String caminhoDoArquivo){
+        super("Não foi possível abrir o arquivo " + nomeDoArquivo + " no caminho " + caminhoDoArquivo);
         this.nomeDoArquivo = nomeDoArquivo;
-        this.diretorio = diretorio;
+        this.caminhoDoArquivo = caminhoDoArquivo;
     }
 
-    /*@Override
-    public String toString() {
-        return "ImpossivelAberturaDeArquivoException{" +
-                "nomeDoArquivo='" + nomeDoArquivo + '\'' +
-                ", diretorio='" + diretorio + '\'' +
-                '}';
-    }*/
-
+    // @Override
+    // public String toString() {
+    //     return "ImpossivelAberturaDeArquivoException{" +
+    //             "nomeDoArquivo='" + nomeDoArquivo + '\'' +
+    //             ", caminhoDoArquivo='" + caminhoDoArquivo + '\'' +
+    //             '}';
+    // }
 }
-
-
-

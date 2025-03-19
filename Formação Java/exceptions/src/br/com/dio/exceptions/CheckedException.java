@@ -6,19 +6,18 @@ import java.io.*;
 //Imprimir um arquivo no console.
 public class CheckedException {
     public static void main(String[] args) {
-        String nomeDoArquivo = "romance-blake-crouch.txt";
+        String nomeDoArquivo = "./src/br/com/dio/exceptions/romances-blake-crouch.txt";
 
         try {
             imprimirArquivoNoConsole(nomeDoArquivo);
-        } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(null,
-                    "Revise o nome do arquivo que você deseja imprimir! " + e.getCause());
+        } catch (FileNotFoundException e){
+            // e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Revise o nome do arquivo");
+        }
+        catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro inesperado!");
             e.printStackTrace();
-        } catch (IOException e){
-            //e.printStackTrace();
-            JOptionPane.showMessageDialog(null,
-                    "Ocorreu um erro inesperado! Entre em contato com o suporte! " + e.getCause());
-        } finally {
+        } finally{
             System.out.println("Chegou no finally!");
         }
 
