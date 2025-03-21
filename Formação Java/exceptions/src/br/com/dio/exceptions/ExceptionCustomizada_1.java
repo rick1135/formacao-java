@@ -38,6 +38,10 @@ public class ExceptionCustomizada_1 {
     public static BufferedReader lerArquivo(String nomeDoArquivo) throws ImpossivelAberturaDeArquivoException {
 
         File file = new File(nomeDoArquivo);
+        System.out.println("Caminho absoluto do arquivo: " + file.getAbsolutePath()); // Adiciona uma mensagem de depuração
+        if (!file.exists()) {
+            throw new ImpossivelAberturaDeArquivoException(file.getName(), file.getPath());
+        }
         try {
             return new BufferedReader(new FileReader(nomeDoArquivo));
         } catch (FileNotFoundException e) {

@@ -9,8 +9,13 @@ public class ExceptionCustomizada_2 {
 
         for (int i = 0; i < denominador.length; i++) {
             try {
-                if(numerador[i] %2 != 0)
+                if(i >= numerador.length)
+                    throw new ArrayIndexOutOfBoundsException("Posição do array inválida!");
+                else if(numerador[i] %2 != 0)
                     throw new DivisaoNaoExataException("Divisão não exata!", numerador[i], denominador[i]);
+                else if(denominador[i] == 0)
+                    throw new ArithmeticException("Divisão por zero!");
+                
 
                 int resultado = numerador[i] / denominador[i];
                 System.out.println(resultado);
