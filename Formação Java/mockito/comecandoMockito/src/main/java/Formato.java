@@ -1,4 +1,3 @@
-package PACKAGE_NAME;
-
-public class Formato {
+public enum Formato {
+    HTML, TEXTO;
 }
