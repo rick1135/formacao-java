@@ -25,18 +25,23 @@ public class CadastrarPessoaTest  {
 
         Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenReturn(dadosLocalizacao);
 
-        Pessoa jose = cadastrarPessoa.cadastrarPessoa("José", "11111111111", LocalDate.of(1999, 1, 1), "39510000");
+        Pessoa pessoa = cadastrarPessoa.cadastrarPessoa("José", "11111111111", LocalDate.of(1999, 1, 1), "39510000");
 
-        DadosLocalizacao enderecojose = jose.getEndereco();
-        assertEquals(dadosLocalizacao.getBairro(), enderecojose.getBairro());
-        assertEquals(dadosLocalizacao.getCidade(), enderecojose.getCidade());
-        assertEquals(dadosLocalizacao.getUf(), enderecojose.getUf());
+        assertEquals("José", pessoa.getNome());
+        assertEquals("11111111111", pessoa.getDocumento());
+        assertEquals("MG", pessoa.getUf());
+        assertEquals("Casa", pessoa.getEndereco().getComplemento());
+        assertEquals("Espinosa", pessoa.getEndereco().getCidade());
+        
     }
 
     @Test
     void lancarExceptionQuandoChamarApiCorreios(){
-        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenThrow(IllegalArgumentException.class);
+        Mockito.doThrow(IllegalArgumentException.class)
+                        .when(apiDosCorreios).buscaDadosComBaseNoCep(anyString());
 
         assertThrows(IllegalArgumentException.class, () -> cadastrarPessoa.cadastrarPessoa("José", "11111111111", LocalDate.of(1999, 1, 1), "39510000"));
     }
+
+
 }

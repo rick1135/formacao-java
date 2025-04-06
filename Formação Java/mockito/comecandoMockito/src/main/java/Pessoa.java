@@ -31,4 +31,8 @@ public class Pessoa {
     public DadosLocalizacao getEndereco() {
         return endereco;
     }
+
+    public String getUf() {
+        return endereco.getUf();
+    }
 }
