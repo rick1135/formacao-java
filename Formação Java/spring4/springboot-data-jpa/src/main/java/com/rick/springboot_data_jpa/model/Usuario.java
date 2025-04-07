@@ -3,7 +3,7 @@ package com.rick.springboot_data_jpa.model;
 import jakarta.persistence.*;
 
 @Entity
-public class User {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
