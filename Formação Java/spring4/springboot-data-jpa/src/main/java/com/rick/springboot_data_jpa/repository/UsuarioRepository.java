@@ -7,8 +7,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface UserRepository extends JpaRepository<Usuario, Integer> {
-    List<Usuario> findByNameContaining(String name);
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+    List<Usuario> findByNameContainingIgnoreCase(String name);
 
     Usuario findByNameContaining(String username);
 
