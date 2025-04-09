@@ -8,28 +8,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    @GetMapping()
-    public List<Usuario> getUsers(){
-        return usuarioRepository.findAll();
-    }
-
-    @GetMapping("{username}")
-    public Usuario getOne(@PathVariable("username") String username){
-        return usuarioRepository.findByUsername(username);
-    }
-
-    @DeleteMapping("{id}")
-    public void delete(@PathVariable("id") Integer id){
-        usuarioRepository.deleteById(id);
-    }
+    private UsuarioRepository repository;
 
     @PostMapping()
-    public void postUser(@RequestBody Usuario usuario){
-        usuarioRepository.save(usuario);
+    public void post(@RequestBody Usuario usuario){
+        repository.save(usuario);
+    }
+    @PutMapping()
+    public void put(@RequestBody Usuario usuario){
+        repository.update(usuario);
+    }
+    @GetMapping()
+    public List<Usuario> getAll(){
+        return repository.listAll();
+    }
+    @GetMapping("{id}")
+    public Usuario getOne(@PathVariable("id") Integer id){
+        return repository.finById(id);
+    }
+    @DeleteMapping("{id}")
+    public void delete(@PathVariable("id") Integer id){
+        repository.remove(id);
     }
 }

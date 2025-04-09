@@ -1,4 +1,10 @@
 package com.rick.first_spring_web_api.handler;
 
-public class BusinessException {
+public class BusinessException extends RuntimeException{
+    public BusinessException(String mensagem){
+        super(mensagem);
+    }
+    public BusinessException(String mensagem, Object ... params){
+        super(String.format(mensagem, params));
+    }
 }
