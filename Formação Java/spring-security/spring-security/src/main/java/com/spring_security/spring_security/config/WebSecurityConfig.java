@@ -1,6 +1,5 @@
-package com.spring_security.spring_security;
+package com.spring_security.spring_security.config;
 
-import com.spring_security.spring_security.config.SecurityDatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
