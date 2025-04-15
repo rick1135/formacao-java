@@ -1,4 +1,4 @@
-package rick.spring_security_jwt.security;
+package rick.spring_security_jwt.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
