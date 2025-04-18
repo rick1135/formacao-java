@@ -1,4 +1,4 @@
-package com.rick.desafio_padroes_projeto;
+package com.rick.desafio_padroes_projeto.singleton;
 
 public class Config {
     private static Config instance;

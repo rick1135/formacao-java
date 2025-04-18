@@ -1,7 +1,7 @@
 package com.rick.padroes_projeto_spring.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
 public class Endereco {

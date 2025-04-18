@@ -1,6 +1,6 @@
 package com.rick.padroes_projeto_spring.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 public class Cliente {
