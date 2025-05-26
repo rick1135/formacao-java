@@ -4,6 +4,7 @@ import com.rick.desafio_academia_digital.entity.Aluno;
 import com.rick.desafio_academia_digital.entity.AvaliacaoFisica;
 import com.rick.desafio_academia_digital.entity.form.AlunoForm;
 import com.rick.desafio_academia_digital.entity.form.AlunoUpdateForm;
+import com.rick.desafio_academia_digital.infra.utils.JavaTimeUtils;
 import com.rick.desafio_academia_digital.repository.AlunoRepository;
 import com.rick.desafio_academia_digital.service.IAlunoService;
 import org.springframework.beans.factory.annotation.Autowired;

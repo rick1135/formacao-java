@@ -12,7 +12,6 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-
 @Configuration
 public class ObjectMapperConfig implements Jackson2ObjectMapperBuilderCustomizer {
 
