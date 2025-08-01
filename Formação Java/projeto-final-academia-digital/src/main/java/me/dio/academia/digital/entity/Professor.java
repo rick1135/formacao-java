@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,13 @@ public class Professor {
     private Long id;
 
     private String nome;
+
+    private String bairro;
+
+    private LocalDate dataDeNascimento;
+
+    @Column(unique = true)
+    private String cpf;
 
     @OneToMany(mappedBy = "professor")
     private List<AvaliacaoFisica> avaliacaoFisicas = new ArrayList<>();
